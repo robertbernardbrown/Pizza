@@ -4,12 +4,12 @@
     <meta charset = "utf-8">
     <meta name = "description" content = "a page for entering your location">
     <title> Pizza Main Page </title>
-    <link rel="stylesheet" type="text/css" href="pizza_signup_style.css">
+    <link rel="stylesheet" type="text/css" href="static/Styles/pizza_signup_style.css">
   </head>
   <body>
     <h1>Touch Pizza, <br> Get Pizza</h1>
 
-      <img src="pizza_image.png" name="clickPizza" class="pizza_image"/>
+      <img src="static/Images/pizza_image.png" name="clickPizza" class="pizza_image"/>
 
       <br>
 
@@ -19,21 +19,21 @@
 
 
       <div class="signUp">
-        <form action="/signup_page.php">
+        <form action="">
         <div class="signUp1">
         Email:
         </div>
-        <input type="text" name="Email" value="">
+        <input type="text" name="Email" Placeholder="Username" value="{{ request.form.username }}">
         
         <div class="signUp1">
         Password:
         </div>
-        <input type="text" name="Password" value="">
+        <input type="text" name="Password" Placeholder="Password" value="{{ request.form.password }}">
         <br><br>
         <input type="submit" value="Submit">
         </form> 
       </div>
 
-    <script src="pizza_script.js"></script>
+    <script src="static/Scripts/pizza_script.js"></script>
   </body>
 </html>
