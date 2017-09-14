@@ -19,19 +19,24 @@
 
 
       <div class="logIn">
-        <form action="/logIn_page.php">
+        <form action="" method="post">
         <div class="logIn1">
         Email:
         </div>
-        <input type="text" name="Email" value="">
+        <input type="text" name="Email" value="{{ request.form.username }}">
         
         <div class="logIn1">
         Password:
         </div>
-        <input type="text" name="Password" value="">
+        <input type="password" name="Password" value="{{ request.form.password }}">
         <br><br>
         <input type="submit" value="Submit">
         </form> 
+
+        {% if error %}
+          <p class="error"><strong>Error:</strong> {{ error }}</p>
+        {% endif %}
+
       </div>
 
     <script src="../Scripts/pizza_script.js"></script>
