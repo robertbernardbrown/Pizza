@@ -2,7 +2,7 @@
 <html lang = 'en'>
   <head>
     <meta charset = "utf-8">
-    <meta name = "description" content = "a page for entering your location">
+    <meta name = "Log-In" content = "a page to log-in">
     <title> Pizza Main Page </title>
     <link rel="stylesheet" type="text/css" href="static/Styles/pizza_signup_style.css">
   </head>
@@ -19,19 +19,24 @@
 
 
       <div class="logIn">
-        <form action="">
+        <form action="" method="post">
         <div class="logIn1">
         Email:
         </div>
-        <input type="text" name="Email" placeholder="Username" value="{{ request.form.username }}">
+        <input type="text" name="username" placeholder="Username" value="{{ request.form.username }}">
         
         <div class="logIn1">
         Password:
         </div>
-        <input type="password" name="Password" placeholder="Password" value="{{ request.form.password }}">
+        <input type="password" name="password" placeholder="Password" value="{{ request.form.password }}">
         <br><br>
-        <input type="submit" value="Submit">
+        <input class="btn btn-default" type="submit" value="Login">
         </form> 
+
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
+
       </div>
 
     <script src="static/Scripts/pizza_script.js"></script>
