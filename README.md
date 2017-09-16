@@ -1,3 +1,3 @@
 # Pizza
 
-A user pushes a pizza button to get pizza delivered
+A user pushes a pizza button to have a pizza delivered to their address.
