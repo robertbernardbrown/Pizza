@@ -1,73 +1,57 @@
-<!doctype html>
-<html lang = 'en'>
-  <head>
-    <meta charset = "utf-8">
-    <meta name = "description" content = "a page for entering your location">
-    <title> Pizza Main Page </title>
-    <link rel="stylesheet" type="text/css" href="static/Styles/pizza_signup_style.css">
-  </head>
-  <body>
-    <h1>Touch Pizza, <br> Get Pizza</h1>
+{% extends "base.html" %}
+{% block content %}
+<p>
+Enter Your Address
+</p>
 
-      <img src="static/Images/pizza_image.png" name="clickPizza" class="pizza_image"/>
+<div class="input">
+  <form action="" method="post">
+    <div class="input1">
+    Street Address:
+    </div>
+    <input type="text" name="streetAddress" value="">
+  
+    <div class="input1">
+    Zipcode:
+    </div>
+    <input type="text" name="zipCode" value="">
 
-      <br>
+    <div class="input1">
+    State:
+    </div>
+    <input type="text" name="state" value="">
 
-      <p>
-      Enter Your Address
-      </p>
+<p>
+Enter Your Credit Info
+</p>
 
-      <div class="input">
-        <form action="" method="post">
-          <div class="input1">
-          Street Address:
-          </div>
-          <input type="text" name="streetAddress" value="">
-        
-          <div class="input1">
-          Zipcode:
-          </div>
-          <input type="text" name="zipCode" value="">
+    <div class="input1">
+    Name on Card:
+    </div>
+    <input type="text" name="name" value="">
 
-          <div class="input1">
-          State:
-          </div>
-          <input type="text" name="state" value="">
+    <div class="input1">
+    Credit Card Number:
+    </div>
+    <input type="text" name="creditNumber" value="">
 
-      <p>
-      Enter Your Credit Info
-      </p>
+    <div class="input1">
+    Security Number:
+    </div>
+    <input type="text" name="securityNumber" value="">
 
-          <div class="input1">
-          Name on Card:
-          </div>
-          <input type="text" name="name" value="">
+    <div class="input1">
+    Expiration Month:
+    </div>
+    <input type="text" name="expirationMonth" value="">
 
-          <div class="input1">
-          Credit Card Number:
-          </div>
-          <input type="text" name="creditNumber" value="">
+    <div class="input1">
+    Expiration Year:
+    </div>
+    <input type="text" name="expirationYear" value="">
 
-          <div class="input1">
-          Security Number:
-          </div>
-          <input type="text" name="securityNumber" value="">
-
-          <div class="input1">
-          Expiration Month:
-          </div>
-          <input type="text" name="expirationMonth" value="">
-
-          <div class="input1">
-          Expiration Year:
-          </div>
-          <input type="text" name="expirationYear" value="">
-
-          <br><br>
-          <input type="submit" value="Submit">
-        </form> <!-- //input_page.php -->
-      </div>
-
-    <script src="static/Scripts/pizza_script.js"></script>
-  </body>
-</html>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form> <!-- //input_page.php -->
+</div>
+{% endblock %}
