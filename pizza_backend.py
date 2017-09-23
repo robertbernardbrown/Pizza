@@ -27,6 +27,10 @@ def login():
 			return redirect(url_for('login'))
 	return render_template('login.html', error=error)
 
+@app.route('/')
+def home():
+		return render_template('base.html')
+
 @app.route('/input')
 @login_required
 def input():
@@ -43,7 +47,6 @@ def final():
 		return render_template('finally.html')
 
 @app.route('/signup')
-@login_required
 def signup():
 		return render_template('signup.html')
 
