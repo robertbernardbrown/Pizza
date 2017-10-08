@@ -1,7 +1,7 @@
-//switch from main to sign-up page
+//switch from main to login page
 
 var indexClick = document.getElementsByClassName("pizza_image");
 
 function pizzaClick () {
-  indexClick.onlick = location.href = "signup.html";
+  indexClick.onlick = location.href = "login";
 } 

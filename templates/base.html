@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang = 'en'>
+  <head>
+    <meta charset = "utf-8">
+    <meta name = "description" content = "a page for entering your location">
+    <title> Pizza Main Page </title>
+    <link rel="stylesheet" type="text/css" href="static/Styles/pizza_index_style.css">
+  </head>
+  <body>
+    <h1>Touch Pizza, <br> Get Pizza</h1>
+
+      <input type="image" src="static/Images/pizza_image.png" name="clickPizza" class="pizza_image" onclick="pizzaClick()"/>
+
+    <div class="container">
+      <!-- child template -->
+      {% block content %}{% endblock %}
+
+      <!-- errors -->
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
+
+      <!-- messages -->
+      {% for message in get_flashed_messages() %}
+        {{ message }}
+      {% endfor %}
+    </div>
+
+    <script src="static/Scripts/pizza_script2.js"></script>
+  </body>
+</html>
+
