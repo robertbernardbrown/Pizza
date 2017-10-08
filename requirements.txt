@@ -56,9 +56,3 @@ virtualenv==15.1.0
 Werkzeug==0.12.2
 xattr==0.6.4
 zope.interface==4.1.1
-
-import pip
-installed_packages = pip.get_installed_distributions()
-installed_packages_list = sorted(["%s==%s" % (i.key, i.version)
-     for i in installed_packages])
-print(installed_packages_list)
