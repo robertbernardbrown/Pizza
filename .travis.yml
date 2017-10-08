@@ -2,10 +2,7 @@ language: python
 
 python:
   -"2.7"
-  -"3.3"
-  -"3.4"
 
 install: pip install Flask
 
-script:
-  -python test.py
+script: "python test.py"
