@@ -2,8 +2,7 @@ sudo: false
 
 language: python
 
-os:
-  -OSX
+os: OSX
 
 python:
   -"2.7"
