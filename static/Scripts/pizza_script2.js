@@ -1,13 +1,11 @@
 //switch from main to login page
 
-var indexClick = document.getElementsByClassName("pizza_image");
-
+var pizzaImage = document.getElementsByClassName("pizza_image");
 function pizzaClick () {
-  indexClick.onlick = location.href = "login";
-} 
+   pizzaImage.onlick = location.href = "login";
+ }
 
-var signClick = document.getElementsByClassName("btn-default");
-
-function signupClick () {
-  signClick.onlick = location.href = "signup";
-} 
+var pizzaSignUpBtn = document.getElementsByClassName("btn-default");
+function pizzaSignUpClick () {
+  pizzaSignUpBtn.onlick = location.href = "signup";
+}
