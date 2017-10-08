@@ -1,4 +1,4 @@
-!(https://travis-ci.org/robertbernardbrown/Pizza.svg?branch=pizzatravis)
+[![Build Status](https://travis-ci.org/robertbernardbrown/Pizza.svg?branch=master)](https://travis-ci.org/robertbernardbrown/Pizza)
 
 # Pizza
 
