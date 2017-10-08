@@ -3,7 +3,7 @@ from functools import wraps
 
 app = Flask(__name__)
 
-app.secret_key = "my precious" 
+app.secret_key = "my precious"
 
 def login_required(f):
     @wraps(f)
@@ -59,3 +59,4 @@ def logout():
 
 if __name__ == '__main__':
 		app.run(debug=True)
+        
