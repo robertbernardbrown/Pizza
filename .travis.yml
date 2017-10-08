@@ -3,6 +3,10 @@ language: python
 python:
   -"2.7"
 
-install: pip install Flask
+sudo: false
 
-script: python test.py
+install:
+  - pip install Flask
+
+script:
+  - python test.py
