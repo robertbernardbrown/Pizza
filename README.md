@@ -19,6 +19,7 @@ Text Editor - Atom
 * TBD
 
 ## Site Preview
+
 * TBD
 
 ## Future Development
