@@ -1,44 +1,29 @@
-<!doctype html>
-<html lang = 'en'>
-  <head>
-    <meta charset = "utf-8">
-    <meta name = "Log-In" content = "a page to log-in">
-    <title> Pizza Main Page </title>
-    <link rel="stylesheet" type="text/css" href="static/Styles/pizza_signup_style.css">
-  </head>
-  <body>
-    <h1>Touch Pizza, <br> Get Pizza</h1>
+{% extends "base.html" %}
+{% block content %}
 
-      <img src="static/Images/pizza_image.png" name="clickPizza" class="pizza_image"/>
+<br>
 
-      <br>
-
-      <p>
-      Log-In
-      </p>
+<p>
+Log-In
+</p>
 
 
-      <div class="logIn">
-        <form action="" method="post">
-        <div class="logIn1">
-        Email:
-        </div>
-        <input type="text" name="username" placeholder="Username" value="{{ request.form.username }}">
-        
-        <div class="logIn1">
-        Password:
-        </div>
-        <input type="password" name="password" placeholder="Password" value="{{ request.form.password }}">
-        <br><br>
-        <input class="btn btn-default" type="submit" value="Login">
-        </form> 
+<div class="logIn">
+<form action="" method="post">
+<div class="logIn1">
+Email:
+</div>
+<input type="text" name="username" placeholder="Username" value="{{ request.form.username }}">
 
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}</p>
-      {% endif %}
+<div class="logIn1">
+Password:
+</div>
+<input type="password" name="password" placeholder="Password" value="{{ request.form.password }}">
+<br><br>
+<input class="btn btn-default" type="submit" value="Login">
+</form>
+<a href="signup">
+   <input type="button" value="Sign Up" />
+</a>
 
-      </div>
-
-    <script src="static/Scripts/pizza_script.js"></script>
-  </body>
-</html>
+{% endblock %}
