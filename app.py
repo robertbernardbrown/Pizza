@@ -1,9 +1,18 @@
 from flask import Flask, render_template, redirect, url_for, request, session, flash
 from functools import wraps
+from flask_bootstrap import Bootstrap
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, BooleanField
+from wtforms.validators import InputRequired, Email, Length
 
 app = Flask(__name__)
-
+Bootstrap(app)
 app.secret_key = "my precious"
+
+class LoginForm(FlaskForm):
+    username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
+    password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=20)])
+    remember = BooleanField('remember me')
 
 def login_required(f):
     @wraps(f)
@@ -17,15 +26,8 @@ def login_required(f):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	error = None
-	if request.method == 'POST':
-		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-			error = 'invalid credentials. Please try again.'
-		else:
-			session['logged_in'] = True
-			flash('you were just logged in')
-			return redirect(url_for('login'))
-	return render_template('login.html', error=error)
+    form = LoginForm()
+    return render_template('login.html', form=form)
 
 @app.route('/')
 def home():
@@ -59,4 +61,3 @@ def logout():
 
 if __name__ == '__main__':
 		app.run(debug=True)
-        

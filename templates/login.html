@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
 
 <br>
@@ -9,16 +10,18 @@ Log-In
 
 
 <div class="logIn">
-<form action="" method="post">
+<form action="/login" method="post">
 <div class="logIn1">
 Email:
 </div>
-<input type="text" name="username" placeholder="Username" value="{{ request.form.username }}">
+{{ form.hidden_tag() }}
+{{ wtf.form_field(form.username) }}
 
 <div class="logIn1">
 Password:
 </div>
-<input type="password" name="password" placeholder="Password" value="{{ request.form.password }}">
+{{ wtf.form_field(form.password) }}
+{{ wtf.form_field(form.remember) }}
 <br><br>
 <input class="btn btn-default" type="submit" value="Login">
 </form>
