@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
 {% block content %}
 <p>
 Sign-Up
@@ -6,17 +8,12 @@ Sign-Up
 
 
 <div class="signUp">
-  <form action="/signup_page.php">
-  <div class="signUp1">
-  Email:
-  </div>
-  <input type="text" name="Email" value="">
-
-  <div class="signUp1">
-  Password:
-  </div>
-  <input type="text" name="Password" value="">
-  <br><br>
+  <form method= "POST" action="/signup">
+  {{ form.hidden_tag() }}
+  {{ wtf.form_field(form.username) }}
+  {{ wtf.form_field(form.email) }}
+  {{ wtf.form_field(form.password) }}
+  <br>
   <input type="submit" value="Submit">
   </form>
 </div>
