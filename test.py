@@ -31,7 +31,7 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post(
         	'/login',
-        	data=dict(username="wrong", password="wrong"),
+        	data=dict(username="wrongwrong", password="wrongwrong"),
         	follow_redirects = True
         )
         self.assertIn(b'Invalid username or password', response.data)
