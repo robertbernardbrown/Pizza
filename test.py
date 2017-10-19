@@ -21,10 +21,10 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post(
         	'/login',
-        	data=dict(username="admin", password="admin"),
+        	data=dict(username="HashTest1", password="secretsecret"),
         	follow_redirects = True
             )
-        self.assertIn(b'you were just logged in', response.data)
+        self.assertEqual(response.status_code, 200)
 
     # Ensure login behaves correctly given incorrect credentials
     def test_incorrect_login(self):
@@ -34,7 +34,7 @@ class FlaskTestCase(unittest.TestCase):
         	data=dict(username="wrong", password="wrong"),
         	follow_redirects = True
         )
-        self.assertIn(b'invalid credentials. Please try again.', response.data)
+        self.assertIn(b'Invalid username or password', response.data)
 
 if __name__ == '__main__':
     unittest.main()
