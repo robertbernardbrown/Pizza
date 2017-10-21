@@ -38,15 +38,15 @@ class RegisterForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=20)])
 
-def login_required(f):
-    @wraps(f)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return f(*args, **kwargs)
-        else:
-            flash('You need to login first.')
-            return redirect(url_for('login'))
-    return wrap
+#def login_required(f):
+#    @wraps(f)
+#    def wrap(*args, **kwargs):
+#        if 'logged_in' in session:
+#            return f(*args, **kwargs)
+#        else:
+#            flash('You need to login first.')
+#            return redirect(url_for('login'))
+#    return wrap
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -56,7 +56,7 @@ def login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
-                return redirect (url_for('home'))
+                return redirect ('/order')
 
         flash('Invalid username or password')
     return render_template('login.html', form=form)
@@ -70,10 +70,10 @@ def home():
 def input():
 		return render_template('input.html')
 
-@app.route('/choice')
+@app.route('/order')
 @login_required
 def choice():
-		return render_template('choice.html')
+		return render_template('order.html')
 
 @app.route('/finally')
 @login_required
