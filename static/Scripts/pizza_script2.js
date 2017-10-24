@@ -1,9 +1,12 @@
 //switch from main to login page
 
-var pizzaImage = document.getElementsByClassName("pizza_image");
-function pizzaClick () {
-   pizzaImage.onlick = location.href = "login";
- }
+var aThing = document.getElementsByClassName("pizza_image");
+
+console.log(aThing);
+
+document.addEventListener("click", pizzaClick (){
+   console.log("hi");
+})
 
 var pizzaSignUpBtn = document.getElementsByClassName("btn-default");
 function pizzaSignUpClick () {
