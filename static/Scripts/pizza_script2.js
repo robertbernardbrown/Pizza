@@ -1,8 +1,8 @@
 //switch from main to login page
 
-var aThing = document.getElementsByClassName("pizza_image");
+var pizzaObj = document.getElementsByClassName("pizza_image");
 
-console.log(aThing);
+console.log(pizzaObj);
 
 document.addEventListener("click", pizzaClick (){
    console.log("hi");
