@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 Bootstrap(app)
 app.secret_key = "my precious"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/robertbernardbrown/Desktop/GitHub2/Pizza/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Bob/Desktop/Github/Pizza/database.db'
 db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
