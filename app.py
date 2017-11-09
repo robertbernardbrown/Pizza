@@ -57,6 +57,7 @@ class RegisterForm(FlaskForm):
 #login route. Will prompt for login username or password. If credentials do not exist will return flsah message, otherwise will login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    error = None
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -64,9 +65,10 @@ def login():
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 return redirect ('order')
-
-        flash('Invalid username or password')
-    return render_template('login.html', form=form)
+        
+        else:
+            error = 'Invalid username or password'
+    return render_template('login.html', form=form, error=error)
 
 #base home route. Where the user is directed after login
 @app.route('/')

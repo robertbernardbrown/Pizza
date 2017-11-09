@@ -1,6 +1,7 @@
 from app import app
 import unittest
-
+from flask.ext.login import current_user
+from flask import request
 
 class FlaskTestCase(unittest.TestCase):
 
@@ -31,7 +32,7 @@ class FlaskTestCase(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.post(
         	'/login',
-        	data=dict(username="wrongwrong", password="wrongwrong"),
+        	data=dict(username="wrong", password="wrongwrong"),
         	follow_redirects = True
         )
         self.assertIn(b'Invalid username or password', response.data)
