@@ -14,25 +14,31 @@ Bootstrap(app)
 app.secret_key = "my precious"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Bob/Desktop/Github/Pizza/database.db'
 db = SQLAlchemy(app)
+
+#defining the login manager class for flask_login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+#create a DB to hold users' credentials
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15), unique=True)
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
 
+#retrieves user information if the login information matches
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+#create a login form that must fit certain parameters
 class LoginForm(FlaskForm):
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
     password = PasswordField('password', validators=[InputRequired(), Length(min=8, max=20)])
     remember = BooleanField('remember me')
 
+#create a registration form that must fit certain parameters
 class RegisterForm(FlaskForm):
     email = StringField('email', validators=[InputRequired(), Email(message='Invalid Email'), Length(max=50)])
     username = StringField('username', validators=[InputRequired(), Length(min=4, max=15)])
@@ -48,6 +54,7 @@ class RegisterForm(FlaskForm):
 #            return redirect(url_for('login'))
 #    return wrap
 
+#login route. Will prompt for login username or password. If credentials do not exist will return flsah message, otherwise will login
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
@@ -61,9 +68,11 @@ def login():
         flash('Invalid username or password')
     return render_template('login.html', form=form)
 
+#base home route. Where the user is directed after login
 @app.route('/')
 def home():
 		return render_template('base.html')
+
 
 @app.route('/input')
 @login_required
@@ -80,6 +89,7 @@ def order():
 def final():
 		return render_template('finally.html')
 
+#signup route. Where the user is sent to register a username and password
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = RegisterForm()
@@ -94,6 +104,7 @@ def signup():
 
     return render_template('signup.html', form=form)
 
+#logout route. Logs a user out when they press the button to visit this page
 @app.route('/logout')
 @login_required
 def logout():

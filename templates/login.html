@@ -12,13 +12,11 @@ Log-In
 <div class="logIn">
 <form action="/login" method="post">
 <div class="logIn1">
-Email:
 </div>
 {{ form.hidden_tag() }}
 {{ wtf.form_field(form.username) }}
 
 <div class="logIn1">
-Password:
 </div>
 {{ wtf.form_field(form.password) }}
 {{ wtf.form_field(form.remember) }}
