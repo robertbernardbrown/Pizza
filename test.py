@@ -37,5 +37,14 @@ class FlaskTestCase(unittest.TestCase):
         )
         self.assertIn(b'Invalid username or password', response.data)
 
+    def test_registration_correct(self):
+        tester = app.test_client(self)
+        response = tester.post(
+        	'/signup',
+        	data=dict(username="hashathon", email="hash3@hash.com", password="secretsecret"),
+        	follow_redirects = True
+        )
+        self.assertIn(b'New user has been created', response.data)
+
 if __name__ == '__main__':
     unittest.main()
