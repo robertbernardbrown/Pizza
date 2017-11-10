@@ -73,7 +73,7 @@ def login():
 #base home route. Where the user is directed after login
 @app.route('/')
 def home():
-		return render_template('base.html')
+    return render_template('base.html')
 
 
 @app.route('/input')
@@ -103,6 +103,7 @@ def signup():
         db.session.commit()
 
         flash('New User has been created')
+        return redirect ('login')
 
     return render_template('signup.html', form=form)
 
