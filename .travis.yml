@@ -5,7 +5,7 @@ language: python
 install:
   - pip install Flask
   - pip install -r requirements.txt
+  - python migrate.py
 
 script:
   - python test.py
- 

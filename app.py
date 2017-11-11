@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 Bootstrap(app)
 app.secret_key = "my precious"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Bob/Desktop/Github/Pizza/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
 #defining the login manager class for flask_login
@@ -65,7 +65,7 @@ def login():
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 return redirect ('order')
-        
+
         else:
             error = 'Invalid username or password'
     return render_template('login.html', form=form, error=error)
