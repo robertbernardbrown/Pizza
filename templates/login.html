@@ -13,6 +13,10 @@ Log-In
 {{ form.hidden_tag() }}
 {{ wtf.form_field(form.username) }}
 
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
 <p>
 <span class="error">
         {% if form.username.errors %}
