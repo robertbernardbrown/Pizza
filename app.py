@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 Bootstrap(app)
 app.secret_key = "my precious"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Bob/Desktop/Github/Pizza/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 
 #defining the login manager class for flask_login
@@ -59,13 +59,13 @@ class RegisterForm(FlaskForm):
 def login():
     error = None
     form = LoginForm()
-    if form.validate_on_submit():
+    if form.is_submitted():
         user = User.query.filter_by(username=form.username.data).first()
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
                 return redirect ('order')
-        
+
         else:
             error = 'Invalid username or password'
     return render_template('login.html', form=form, error=error)
@@ -96,7 +96,7 @@ def final():
 def signup():
     form = RegisterForm()
 
-    if form.validate_on_submit():
+    if form.is_submitted():
         hashed_password = generate_password_hash(form.password.data, method='sha256')
         new_user = User(username=form.username.data, email=form.email.data, password=hashed_password)
         db.session.add(new_user)

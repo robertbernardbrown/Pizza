@@ -4,7 +4,6 @@ from flask.ext.login import current_user
 from flask import request
 
 class FlaskTestCase(unittest.TestCase):
-
     # Ensure that flask was set up correctly
     def test_index(self):
         tester = app.test_client(self)
@@ -44,7 +43,7 @@ class FlaskTestCase(unittest.TestCase):
         	data=dict(username="hashathon", email="hash3@hash.com", password="secretsecret"),
         	follow_redirects = True
         )
-        self.assertIn(b'New user has been created', response.data)
+        self.assertIn(b'New User has been created', response.data)
 
 if __name__ == '__main__':
     unittest.main()
