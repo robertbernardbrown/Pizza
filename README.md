@@ -16,11 +16,11 @@ Text Editor - Atom
 
 ## Features
 
-* TBD
+* Login/logout
 
 ## Site Preview
 
-* TBD
+* ![alt text](https://github.com/robertbernardbrown/Pizza/blob/master/pizza.png)
 
 ## Future Development
 
