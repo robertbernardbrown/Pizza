@@ -1,12 +1,14 @@
-      html {
+      html, body {
       margin: 0% auto;
       text-align: center;
       background-color: #ff443a;
-      font-family: Georgia, "Times New Roman";
       color: white;
+      font-family: Georgia, "Times New Roman";
       }
       h1 {
+      color: white;
+      font-family: Georgia, "Times New Roman";
       font-size: 3em;
-      margin: 50px;
       }
-      
+  
+
