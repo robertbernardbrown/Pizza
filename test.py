@@ -16,6 +16,12 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/login', content_type='html/text')
         self.assertTrue(b'Log-In' in response.data)
 
+    # Ensure sign-up page loads correctly
+    def test_signup_page_loads(self):
+        tester = app.test_client(self)
+        response = tester.get('/signup', content_type='html/text')
+        self.assertTrue(b'Sign-Up' in response.data)
+
     # Ensure login behaves correctly given correct credentials
     def test_correct_login(self):
         tester = app.test_client(self)
