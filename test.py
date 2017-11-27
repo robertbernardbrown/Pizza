@@ -10,6 +10,12 @@ class FlaskTestCase(unittest.TestCase):
         response = tester.get('/', content_type='html/text')
         self.assertEqual(response.status_code, 200)
 
+ 	# Ensure home page loads correctly
+    def test_home_page_loads(self):
+        tester = app.test_client(self)
+        response = tester.get('/', content_type='html/text')
+        self.assertTrue(b'Touch Pizza' in response.data)
+
  	# Ensure login page loads correctly
     def test_login_page_loads(self):
         tester = app.test_client(self)
@@ -42,11 +48,12 @@ class FlaskTestCase(unittest.TestCase):
         )
         self.assertIn(b'Invalid username or password', response.data)
 
+  # Ensure registration behaves correctly and creates a new user
     def test_registration_correct(self):
         tester = app.test_client(self)
         response = tester.post(
         	'/signup',
-        	data=dict(username="hashathon", email="hash3@hash.com", password="secretsecret"),
+        	data=dict(username="hashathon7", email="hash7@hash.com", password="secretsecret"),
         	follow_redirects = True
         )
         self.assertIn(b'New User has been created', response.data)
